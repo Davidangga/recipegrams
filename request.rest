@@ -1,0 +1,17 @@
+POST http://localhost:3000/api/recipes
+Content-Type: application/json
+
+{
+    "title": "Jim",
+    "duration": "45 minutes",
+    "category": "test",
+    "area": "asian",
+    "imagePath": ".jpeg",
+    "videolink": "www.com",
+    "ingredients": [
+        {"name": "lotus",
+        "quantity": "10 tbsp"}
+    ],
+    "instructions": [ "cook", "rinse"
+    ]
+}
