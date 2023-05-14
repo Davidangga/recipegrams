@@ -1,17 +1,91 @@
+### Register user
+POST http://localhost:3000/api/user/register
+Content-Type: application/json
+
+{
+    "email": "john@gmail.com",
+    "password": "password",
+    "username": "john"
+}
+
+### Login user
+POST http://localhost:3000/api/user/login
+Content-Type: application/json
+
+{
+    "email": "test@gmail.com",
+    "password": "password"
+}
+
+### Access Token reproduced
+POST  http://localhost:3000/api/user/token
+
+### Logout user
+DELETE http://localhost:3000/api/user/logout
+
+### Create Recipe 
 POST http://localhost:3000/api/recipes
 Content-Type: application/json
 
 {
-    "title": "Jim",
-    "duration": "45 minutes",
-    "category": "test",
-    "area": "asian",
-    "imagePath": ".jpeg",
-    "videolink": "www.com",
+    "title" : "john food 2", 
+    "duration": "45min", 
+    "category": "Breakfast", 
+    "area": "Asian", 
+    "imagepath": "arabita.jpeg", 
+    "videolink": "youtube.com",
     "ingredients": [
-        {"name": "lotus",
-        "quantity": "10 tbsp"}
+        {
+            "name": "ingredient1",
+            "quantity": "1tbsp"
+        },
+        {
+            "name": "ingredient2",
+            "quantity": "1tbsp"
+        }
     ],
-    "instructions": [ "cook", "rinse"
+    "instructions": [
+        "instruction1","instruction2","instrcution3"
     ]
 }
+
+### Select All recipes
+GET http://localhost:3000/api/recipes
+
+### select recipe by id for user
+GET http://localhost:3000/api/recipes/6460f5c7ddc006fbf5278e2c
+
+
+### Edit recipe by id for user
+PUT http://localhost:3000/api/recipes/6460f5c4ddc006fbf5278e28
+Content-Type: application/json
+
+{
+    "title" : "john food 1", 
+    "duration": "1 Jam", 
+    "category": "Lunch", 
+    "area": "Asian", 
+    "videolink": "youtube.com",
+    "ingredients": [
+        {
+            "name": "ingredient1",
+            "quantity": "1tbsp"
+        },
+        {
+            "name": "ingredient1",
+            "quantity": "1tbsp"
+        }
+    ]
+}
+
+### Delete recipe by id for user
+DELETE http://localhost:3000/api/recipes/6460f5c4ddc006fbf5278e28
+
+### Get all liked recipe 
+GET http://localhost:3000/api/liked
+
+### Add like recipe to the user
+PUT http://localhost:3000/api/liked/10
+
+### Delete like recipe from the user
+DELETE http://localhost:3000/api/liked/10
