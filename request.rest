@@ -53,11 +53,11 @@ Content-Type: application/json
 GET http://localhost:3000/api/recipes
 
 ### select recipe by id for user
-GET http://localhost:3000/api/recipes/6460f5c7ddc006fbf5278e2c
+GET http://localhost:3000/api/recipes/6460f599ddc006fbf5278e15
 
 
 ### Edit recipe by id for user
-PUT http://localhost:3000/api/recipes/6460f5c4ddc006fbf5278e28
+PUT http://localhost:3000/api/recipes/6460f599ddc006fbf5278e15
 Content-Type: application/json
 
 {
