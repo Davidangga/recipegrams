@@ -89,3 +89,6 @@ PUT http://localhost:3000/api/liked/10
 
 ### Delete like recipe from the user
 DELETE http://localhost:3000/api/liked/10
+
+### Auth access
+POST  http://localhost:3000/api/user/auth
