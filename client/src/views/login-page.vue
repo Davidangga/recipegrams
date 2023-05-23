@@ -19,8 +19,6 @@
                         <input type="radio" value="register" v-model="formType" class="form-check-input" /> Register
                     </label>
                 </div>
-
-              <div v-if="errorMessage" class="error-message">{{ errorMessage }}</div>
               
               <div v-if="formType === 'login'">
                 <form @submit.prevent="login" novalidate>
@@ -34,8 +32,11 @@
                     <input type="password" id="password" v-model="loginData.password" :class="{'is-invalid': errors.password}" class="form-control" required>
                     <div v-if="errors.password" class="invalid-feedback">{{ errors.password }}</div>
                   </div>
+
+                  <div v-if="loginErrorMessage" class="error-message">{{ loginErrorMessage }}</div>
+
                   <div class="form-group submit-container">
-                    <button type="submit" class="btn btn-primary">Login</button>
+                    <button type="submit" class="">Login</button>
                   </div>
                 </form>
               </div>
@@ -45,7 +46,6 @@
                   <div class="form-group">
                     <label for="username">Username</label>
                     <input type="text" id="username" v-model="registerData.username" class="form-control" required>
-                    <div v-if="errors.email" class="invalid-feedback">{{ errors.email }}</div>
                   </div>
                   <div class="form-group">
                     <label for="email">Email</label>
@@ -57,8 +57,9 @@
                     <input type="password" id="password" v-model="registerData.password" :class="{'is-invalid': errors.password}" class="form-control" required>
                     <div v-if="errors.password" class="invalid-feedback">{{ errors.password }}</div>
                   </div>
+                  <div v-if="registerErrorMessage" class="error-message">{{ registerErrorMessage }}</div>
                   <div class="form-group submit-container">
-                    <button type="submit" class="btn btn-primary">Register</button>
+                    <button type="submit" class="">Register</button>
                   </div>
                 </form>
               </div>
@@ -87,7 +88,8 @@ export default {
                 password: "",
                 username:""
             },
-            errorMessage: "",
+            loginErrorMessage: "",
+            registerErrorMessage: "",
             errors: {},
             formType: "login"
         }
@@ -95,7 +97,7 @@ export default {
     methods: {
         async login() {
         this.errors = {}; // Clear any previous errors
-        
+        this.loginErrorMessage = "";
         // Validate input
         if (!this.loginData.email) {
             this.errors.email = 'Email is required.';
@@ -112,24 +114,31 @@ export default {
         // Check if there are any errors
         if (Object.keys(this.errors).length === 0) {
             try{
-                const response = await axios.post("http://localhost:3000/api/user/login");
-                const jsonData = response.data;
+                const response = await axios.post("http://localhost:3000/api/user/login", 
+                {
+                    email: this.loginData.email, 
+                    password: this.loginData.password
+                },
+                {
+                  withCredentials: true,
+                });
                 if (response.status === 200){
                     this.$router.push({ name: 'home' });
                 }
-                else{
-                    this.errorMessage = jsonData.message;
-                }
-
             }
             catch(error){
-                this.$router.push({ name: 'error', params: { errorMessage: error} });
+                if (error.response.status === 401){
+                    this.loginErrorMessage = error.response.data.error;
+                }
+                else{
+                    this.$router.push({ name: 'error', params: { errorMessage: error} });
+                }
             }
         }
         },
         async register() {
         this.errors = {}; // Clear any previous errors
-        
+        this.registerErrorMessage = "";
         // Validate input
         if (!this.registerData.email) {
             this.errors.email = 'Email is required.';
@@ -146,19 +155,24 @@ export default {
         // Check if there are any errors
         if (Object.keys(this.errors).length === 0) {
             try{
-                const response = await axios.post("http://localhost:3000/api/user/register");
-                const jsonData = response.data;
+                const response = await axios.post("http://localhost:3000/api/user/register", 
+                {
+                    email: this.registerData.email,
+                    password: this.registerData.password,
+                    username: this.registerData.username
+                });
                 if (response.status === 200){
                     this.formType = "login";
                     this.resetForm();
                 }
-                else{
-                    this.errorMessage = jsonData.message;
-                }
-
             }
             catch(error){
-                this.$router.push({ name: 'error', params: { errorMessage: error} });
+                if (error.response.status === 400){
+                    this.RegisterErrorMessage = error.response.data.error;
+                }
+                else{
+                    this.$router.push({ name: 'error', params: { errorMessage: error} });
+                }
             }
         }
         },
@@ -168,6 +182,8 @@ export default {
             this.registerData.email = "";
             this.registerData.password = "";
             this.registerData.username = "";
+            this.loginErrorMessage = "";
+            this.registerErrorMessage = "";
         },
         isValidEmail(email) {
         // Regular expression to validate email format
@@ -197,6 +213,9 @@ export default {
     justify-content: center; 
 }
 
+.container{
+    
+}
 .login-container {
     position: relative;
     max-width: 90%;
@@ -283,8 +302,10 @@ form button{
     border-radius: 50px;
     background-color: #E94C89;
     border: none;
+    color: white;
 
 }
+
 .error-message {
   color: red;
   margin-bottom: 10px;

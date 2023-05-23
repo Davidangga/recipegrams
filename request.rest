@@ -3,9 +3,9 @@ POST http://localhost:3000/api/user/register
 Content-Type: application/json
 
 {
-    "email": "john@gmail.com",
+    "email": "jon@gmail.com",
     "password": "password",
-    "username": "john"
+    "username": "jon"
 }
 
 ### Login user
@@ -13,8 +13,8 @@ POST http://localhost:3000/api/user/login
 Content-Type: application/json
 
 {
-    "email": "test@gmail.com",
-    "password": "password"
+    "email": "david@gmail.com",
+    "password": "david123!"
 }
 
 ### Access Token reproduced

@@ -33,7 +33,9 @@ const router = createRouter({
 router.beforeEach( async (to, from, next) => {
     let isAuthenticated = false;
     try{
-        const response = await axios.post("http://localhost:3000/api/user/auth");
+        const response = await axios.post("http://localhost:3000/api/user/auth", null, {
+        withCredentials: true,
+        });
         if (response.status === 200){
             isAuthenticated = true;
         }
