@@ -74,7 +74,6 @@
 
 <script>
 import axios from "axios";
-
 export default {
     name: 'loginPage',
     data(){
@@ -161,6 +160,7 @@ export default {
                     password: this.registerData.password,
                     username: this.registerData.username
                 });
+
                 if (response.status === 200){
                     this.formType = "login";
                     this.resetForm();

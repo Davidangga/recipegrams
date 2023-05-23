@@ -1,8 +1,8 @@
 import {createRouter, createWebHistory} from 'vue-router';
-import axios from 'axios';
 import HomePage from '../views/home-page.vue';
 import LoginPage from '../views/login-page.vue';
 import ErrorPage from "../views/error-page.vue";
+import api from "../api/index";
 const routes = [
     {
         path: "/",
@@ -32,17 +32,17 @@ const router = createRouter({
 
 router.beforeEach( async (to, from, next) => {
     let isAuthenticated = false;
-    try{
-        const response = await axios.post("http://localhost:3000/api/user/auth", null, {
-        withCredentials: true,
-        });
-        if (response.status === 200){
-            isAuthenticated = true;
+        try{
+            const response = await api.post("user/auth", null, {
+            withCredentials: true,
+            });
+            if (response.status === 200){
+                isAuthenticated = true;
+            }
         }
-    }
-    catch (error){
-        isAuthenticated = false;
-    }
+        catch (error){
+            isAuthenticated = false;
+        }
     if (to.meta.requiresAuth) {
         // Route requires authentication
         if (isAuthenticated) {
