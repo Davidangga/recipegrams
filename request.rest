@@ -52,6 +52,9 @@ Content-Type: application/json
 ### Select All recipes
 GET http://localhost:3000/api/recipes
 
+### Select All recipes by user
+GET http://localhost:3000/api/recipes/private
+
 ### select recipe by id for user
 GET http://localhost:3000/api/recipes/6460f599ddc006fbf5278e15
 
