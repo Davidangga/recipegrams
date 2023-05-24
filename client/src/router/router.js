@@ -2,12 +2,34 @@ import {createRouter, createWebHistory} from 'vue-router';
 import HomePage from '../views/home-page.vue';
 import LoginPage from '../views/login-page.vue';
 import ErrorPage from "../views/error-page.vue";
+import BrowsePage from "../views/browse-page.vue";
+import LikePage from "../views/like-page.vue";
+import PrivatePage from "../views/private-page.vue";
+import NotFound from "../views/notfound-page.vue";
 import api from "../api/index";
 const routes = [
     {
         path: "/",
         name: "home",
         component: HomePage,
+        meta: { requiresAuth: true },
+    },
+    {
+        path: "/browse",
+        name: "browse",
+        component: BrowsePage,
+        meta: { requiresAuth: true },
+    },
+    {
+        path: "/like",
+        name: "like",
+        component: LikePage,
+        meta: { requiresAuth: true },
+    },
+    {
+        path: "/private",
+        name: "private",
+        component: PrivatePage,
         meta: { requiresAuth: true },
     },
     {
@@ -21,7 +43,8 @@ const routes = [
         name: "error",
         component: ErrorPage,
         props: true
-    }
+    },
+    { path: '/:pathMatch(.*)*', component: NotFound },
 ]
 
 const router = createRouter({
