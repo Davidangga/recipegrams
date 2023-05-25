@@ -14,8 +14,10 @@
     "js-cookie": "^3.0.5",
     "jsonwebtoken": "^9.0.0",
     "jwt-decode": "^3.1.2",
+    "v-video-embed": "^1.0.8",
     "vue": "^3.2.13",
-    "vue-router": "^4.2.1"
+    "vue-router": "^4.2.1",
+    "vue-youtube-embed": "^2.2.2"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",

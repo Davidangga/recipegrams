@@ -3,7 +3,7 @@ POST http://localhost:3000/api/user/register
 Content-Type: application/json
 
 {
-    "email": "jon@gmail.com",
+    "email": "john@gmail.com",
     "password": "password",
     "username": "jon"
 }
@@ -55,7 +55,7 @@ GET http://localhost:3000/api/recipes
 GET http://localhost:3000/api/recipes/private
 
 ### select recipe by id
-GET http://localhost:3000/api/recipes/6460f599ddc006fbf5278e15
+GET http://localhost:3000/api/recipes/646f1d8031c09da918247743
 
 
 ### get recipes by search

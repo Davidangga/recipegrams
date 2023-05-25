@@ -6,7 +6,7 @@
             <navComponent></navComponent>
         </div>
         <div class="col-8">
-            content
+            <recipeComponent></recipeComponent>
         </div>
         </div>
         <addformComponent></addformComponent>
@@ -17,8 +17,9 @@
 import navComponent from "../components/nav.vue";
 import headerComponent from "../components/header.vue";
 import addformComponent from "../components/add-form.vue";
+import recipeComponent from "../components/recipe.vue"
 export default{
-    components: {navComponent, headerComponent, addformComponent},
+    components: {navComponent, headerComponent, addformComponent, recipeComponent},
 }
 </script>
 

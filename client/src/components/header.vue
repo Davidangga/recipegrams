@@ -21,27 +21,37 @@
 
 <script>
 import axios from 'axios';
+import jwtDecode from 'jwt-decode';
+import cookies from 'js-cookie';
 export default{
     name: "headerComponent",
     data(){
         return{
-            userName: "David"
+            userName: "",
         }
     },
+    created(){
+      this.getUsername();
+    },
     methods: {
-    async logoutUser(){
-      try{
-        await axios.delete("http://localhost:3000/api/user/logout", {
-          withCredentials: true
-        });
-        this.$router.push({name: 'login'});
-      }
-      catch(error){
-        if (error.response.status === 401){
-            this.$router.push({ name: 'error', params: { errorMessage: error.response.data.error} });
+
+      getUsername(){
+        const decodedtoken = jwtDecode(cookies.get('clientAccessToken'));
+        this.userName = decodedtoken.userName;
+      },
+      async logoutUser(){
+        try{
+          await axios.delete("http://localhost:3000/api/user/logout", {
+            withCredentials: true
+          });
+          this.$router.push({name: 'login'});
+        }
+        catch(error){
+          if (error.response.status === 401){
+              this.$router.push({ name: 'error', params: { errorMessage: error.response.data.error} });
+          }
         }
       }
-    }
   }
 }
 </script>

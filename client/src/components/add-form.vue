@@ -205,14 +205,14 @@
       async submitForm() {
         // Handle form submission logic here
         console.log(this.recipe);
-        this.recipe.duration = this.recipe.duration + "Minutes";
+        this.recipe.duration = this.recipe.duration + " Minutes";
         try{
           const response = await api.post("/recipes",{
             title: this.recipe.title,
             duration: this.recipe.duration,
             category: this.recipe.category,
             area: this.recipe.area,
-            videoLink: this.recipe.videoLink,
+            videolink: this.recipe.videoLink,
             ingredients: this.recipe.ingredients,
             instructions: this.recipe.instructions
           },{
@@ -300,7 +300,7 @@
 
   .form-title{
     font-family: var(--logo-font-family);
-    font-size: 2rem;
+    font-size: 2.5rem;
     width: fit-content;
     margin-bottom: 30px;
   }
@@ -324,7 +324,7 @@
 
   .form-group label{
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
   .form-group input{
     border: 3px solid #E94C89;
@@ -357,6 +357,8 @@
 
   .add-btn span{
     margin-left: 15px;
+    font-size: 1.1rem ;
+    
   }
 
   .form-group .remove-btn{
@@ -417,7 +419,9 @@
     background-color: #E94C89;
   }
 
-
+  .success-message{
+    color: green;
+  }
 
   .close-icon {
     position: absolute;

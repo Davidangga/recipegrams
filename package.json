@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "intersection-observer": "^0.12.2",
+    "vue-youtube": "^1.4.0"
+  }
+}

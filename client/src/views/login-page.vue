@@ -24,15 +24,16 @@
                 <form @submit.prevent="login" novalidate>
                   <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" id="email" v-model="loginData.email" :class="{'is-invalid': errors.email}" class="form-control" required>
-                    <div v-if="errors.email" class="invalid-feedback">{{ errors.email }}</div>
+                    <input type="email" id="email" v-model="loginData.email" :class="{'is-invalid': loginErrors.email}" class="form-control" required>
+                    <div v-if="loginErrors.email" class="invalid-feedback">{{ loginErrors.email }}</div>
                   </div>
                   <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" id="password" v-model="loginData.password" :class="{'is-invalid': errors.password}" class="form-control" required>
-                    <div v-if="errors.password" class="invalid-feedback">{{ errors.password }}</div>
+                    <input type="password" id="password" v-model="loginData.password" :class="{'is-invalid': loginErrors.password}" class="form-control" required>
+                    <div v-if="loginErrors.password" class="invalid-feedback">{{ loginErrors.password }}</div>
                   </div>
 
+                  <div v-if="registerSuccessful" class="success-message">Account has been registered, please log in.</div>
                   <div v-if="loginErrorMessage" class="error-message">{{ loginErrorMessage }}</div>
 
                   <div class="form-group submit-container">
@@ -49,13 +50,13 @@
                   </div>
                   <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" id="email" v-model="registerData.email" :class="{'is-invalid': errors.email}" class="form-control" required>
-                    <div v-if="errors.email" class="invalid-feedback">{{ errors.email }}</div>
+                    <input type="email" id="email" v-model="registerData.email" :class="{'is-invalid': resgisterErrors.email}" class="form-control" required>
+                    <div v-if="resgisterErrors.email" class="invalid-feedback">{{ resgisterErrors.email }}</div>
                   </div>
                   <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" id="password" v-model="registerData.password" :class="{'is-invalid': errors.password}" class="form-control" required>
-                    <div v-if="errors.password" class="invalid-feedback">{{ errors.password }}</div>
+                    <input type="password" id="password" v-model="registerData.password" :class="{'is-invalid': resgisterErrors.password}" class="form-control" required>
+                    <div v-if="resgisterErrors.password" class="invalid-feedback">{{ resgisterErrors.password }}</div>
                   </div>
                   <div v-if="registerErrorMessage" class="error-message">{{ registerErrorMessage }}</div>
                   <div class="form-group submit-container">
@@ -89,29 +90,35 @@ export default {
             },
             loginErrorMessage: "",
             registerErrorMessage: "",
-            errors: {},
-            formType: "login"
+            loginErrors: {},
+            resgisterErrors: {},
+            formType: "login",
+            registerSuccessful: false,
         }
     },
     methods: {
         async login() {
-        this.errors = {}; // Clear any previous errors
+
+        // Clear any previous data from register
+        this.loginErrors = {}; 
+        this.resgisterErrors = {};
         this.loginErrorMessage = "";
+        this.registerSuccessful = false;
         // Validate input
         if (!this.loginData.email) {
-            this.errors.email = 'Email is required.';
+            this.loginErrors.email = 'Email is required.';
         } else if (!this.isValidEmail(this.loginData.email)) {
-            this.errors.email = 'Please enter a valid email address.';
+            this.loginErrors.email = 'Please enter a valid email address.';
         }
         
         if (!this.loginData.password) {
-            this.errors.password = 'Password is required.';
+            this.loginErrors.password = 'Password is required.';
         } else if (!this.isValidPassword(this.loginData.password)) {
-            this.errors.password = 'Password must be at least 8 characters long and contain a combination of letters, numbers, and special characters.';
+            this.loginErrors.password = 'Password must be at least 8 characters long and contain a combination of letters, numbers, and special characters.';
         }
         
-        // Check if there are any errors
-        if (Object.keys(this.errors).length === 0) {
+        // Check if there are any loginErrors
+        if (Object.keys(this.loginErrors).length === 0) {
             try{
                 const response = await axios.post("http://localhost:3000/api/user/login", 
                 {
@@ -136,23 +143,25 @@ export default {
         }
         },
         async register() {
-        this.errors = {}; // Clear any previous errors
+          // Clear any previous data from login
+        this.loginErrors = {};
+        this.resgisterErrors = {};
         this.registerErrorMessage = "";
         // Validate input
         if (!this.registerData.email) {
-            this.errors.email = 'Email is required.';
+            this.resgisterErrors.email = 'Email is required.';
         } else if (!this.isValidEmail(this.registerData.email)) {
-            this.errors.email = 'Please enter a valid email address.';
+            this.resgisterErrors.email = 'Please enter a valid email address.';
         }
         
         if (!this.registerData.password) {
-            this.errors.password = 'Password is required.';
+            this.resgisterErrors.password = 'Password is required.';
         } else if (!this.isValidPassword(this.registerData.password)) {
-            this.errors.password = 'Password must be at least 8 characters long and contain a combination of letters, numbers, and special characters.';
+            this.resgisterErrors.password = 'Password must be at least 8 characters long and contain a combination of letters, numbers, and special characters.';
         }
         
-        // Check if there are any errors
-        if (Object.keys(this.errors).length === 0) {
+        // Check if there are any resgisterErrors
+        if (Object.keys(this.resgisterErrors).length === 0) {
             try{
                 const response = await axios.post("http://localhost:3000/api/user/register", 
                 {
@@ -162,13 +171,14 @@ export default {
                 });
 
                 if (response.status === 200){
+                    this.registerSuccessful = true;
                     this.formType = "login";
                     this.resetForm();
                 }
             }
             catch(error){
                 if (error.response.status === 400){
-                    this.RegisterErrorMessage = error.response.data.error;
+                    this.registerErrorMessage = error.response.data.error;
                 }
                 else{
                     this.$router.push({ name: 'error', params: { errorMessage: error} });
@@ -310,6 +320,12 @@ form button{
   color: red;
   margin-bottom: 10px;
 }
+
+.success-message {
+  color: green;
+  margin-bottom: 10px;
+}
+
 
 .is-invalid {
   border-color: red;
