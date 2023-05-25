@@ -116,6 +116,9 @@
                         </button>
                       </div>
 
+                      <div class="success-message">
+                        <p>{{message}}</p>
+                      </div>
                       <div class="btn-container">
                         <button class="submit-btn" type="submit">Add Recipe</button>
                       </div>
@@ -133,6 +136,7 @@
   </template>
   
   <script>
+  import api from "../api/index";
   export default {
     data() {
       return {
@@ -145,7 +149,8 @@
         videoLink: '',
         ingredients: [],
         instructions: []
-      }
+      },
+      message: ""
       };
     },
     computed: {
@@ -177,7 +182,9 @@
         videoLink: '',
         ingredients: [],
         instructions: []
-      }
+      };
+
+        this.message = "";
         this.showForm = false;
       },
       addIngredient() {
@@ -195,19 +202,41 @@
       removeInstruction(index) {
         this.instructions.splice(index, 1);
       },
-      submitForm() {
+      async submitForm() {
         // Handle form submission logic here
         console.log(this.recipe);
+        this.recipe.duration = this.recipe.duration + "Minutes";
+        try{
+          const response = await api.post("/recipes",{
+            title: this.recipe.title,
+            duration: this.recipe.duration,
+            category: this.recipe.category,
+            area: this.recipe.area,
+            videoLink: this.recipe.videoLink,
+            ingredients: this.recipe.ingredients,
+            instructions: this.recipe.instructions
+          },{
+            withCredentials: true
+          }
+          );
 
-        this.recipe = {
-        title: '',
-        duration: '',
-        category: '',
-        area: '',
-        videoLink: '',
-        ingredients: [],
-        instructions: []
-      }
+          if(response.status === 200){
+            this.recipe = {
+            title: '',
+            duration: '',
+            category: '',
+            area: '',
+            videoLink: '',
+            ingredients: [],
+            instructions: []
+            };
+
+            this.message = response.data.message;
+          }
+        }
+        catch(error){
+          this.$router.push({ name: 'error', params: { errorMessage: error.response.data.error} });
+        }
         // You can send the form data to an API or perform any other actions
       }
   }

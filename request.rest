@@ -32,7 +32,6 @@ Content-Type: application/json
     "duration": "45min", 
     "category": "Breakfast", 
     "area": "Asian", 
-    "imagepath": "arabita.jpeg", 
     "videolink": "youtube.com",
     "ingredients": [
         {
@@ -55,12 +54,20 @@ GET http://localhost:3000/api/recipes
 ### Select All recipes by user
 GET http://localhost:3000/api/recipes/private
 
-### select recipe by id for user
+### select recipe by id
 GET http://localhost:3000/api/recipes/6460f599ddc006fbf5278e15
 
 
+### get recipes by search
+GET http://localhost:3000/api/recipes/search/john
+
+### get recipes by search
+GET http://localhost:3000/api/recipes/search/lunch
+
+### get recipes by search
+GET http://localhost:3000/api/recipes/area/Asian
 ### Edit recipe by id for user
-PUT http://localhost:3000/api/recipes/6460f599ddc006fbf5278e15
+PUT http://localhost:3000/api/recipes/edit/6460f599ddc006fbf5278e15
 Content-Type: application/json
 
 {
@@ -82,16 +89,16 @@ Content-Type: application/json
 }
 
 ### Delete recipe by id for user
-DELETE http://localhost:3000/api/recipes/6460f5c4ddc006fbf5278e28
+DELETE http://localhost:3000/api/recipes/delete/6460f5c4ddc006fbf5278e28
 
 ### Get all liked recipe 
 GET http://localhost:3000/api/liked
 
 ### Add like recipe to the user
-PUT http://localhost:3000/api/liked/10
+PUT http://localhost:3000/api/liked/6460f599ddc006fbf5278e15
 
 ### Delete like recipe from the user
-DELETE http://localhost:3000/api/liked/10
+DELETE http://localhost:3000/api/liked/6460f599ddc006fbf5278e15
 
 ### Auth access
 POST  http://localhost:3000/api/user/auth
