@@ -221,6 +221,9 @@
           );
 
           if(response.status === 200){
+
+            this.$emit("recipe-added");
+
             this.recipe = {
             title: '',
             duration: '',

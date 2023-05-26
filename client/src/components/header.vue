@@ -10,7 +10,7 @@
       <div class="col-3 profile-container">
         <div>
           <!-- change this -->
-          <span>Welcome, {{userName}}</span> 
+          <span>Welcome, <span class="username">{{userName}}</span></span> 
         </div>
         <div>
           <button class="logout-btn" @click="logoutUser">Logout</button>
@@ -61,7 +61,7 @@ export default{
 .nav-container{
     display: flex;
     align-items: center;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     padding: 20px 0;
 }
 .logo-container{
@@ -97,6 +97,9 @@ export default{
     font-weight: 600;
 }
 
+.username{
+  color: #E94C89;
+}
 .logout-btn{
     margin-left: 70px;
     width: 100px;

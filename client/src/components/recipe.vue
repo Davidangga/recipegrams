@@ -22,9 +22,9 @@
         <div class="col-2">
             <div class="recipe-actions">
                 <button class="like-button" @click="likeVideo">
-                <div class="circle-icon" :class="{liked : likeVideo()}">
+                <div class="circle-icon" :class="{liked : recipeliked}">
                     <svg width="35" height="35" viewBox="0 0 36 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path :class="{liked : likeVideo()}" d="M25.8652 0.282227C22.4794 0.282227 19.5863 2.69561 17.9967 4.35946C16.4072 2.69561 13.5205 0.282227 10.1363 0.282227C4.3031 0.282227 0.230713 4.34815 0.230713 10.1684C0.230713 16.5815 5.28848 20.7265 10.1815 24.7359C12.4915 26.6308 14.8823 28.5886 16.7157 30.7597C17.0243 31.1232 17.4766 31.3332 17.9515 31.3332H18.0452C18.5217 31.3332 18.9724 31.1215 19.2793 30.7597C21.116 28.5886 23.5052 26.6292 25.8168 24.7359C30.7082 20.7282 35.7692 16.5831 35.7692 10.1684C35.7692 4.34815 31.6968 0.282227 25.8652 0.282227Z" fill="black"/>
+<path :class="{liked : recipeliked}" d="M25.8652 0.282227C22.4794 0.282227 19.5863 2.69561 17.9967 4.35946C16.4072 2.69561 13.5205 0.282227 10.1363 0.282227C4.3031 0.282227 0.230713 4.34815 0.230713 10.1684C0.230713 16.5815 5.28848 20.7265 10.1815 24.7359C12.4915 26.6308 14.8823 28.5886 16.7157 30.7597C17.0243 31.1232 17.4766 31.3332 17.9515 31.3332H18.0452C18.5217 31.3332 18.9724 31.1215 19.2793 30.7597C21.116 28.5886 23.5052 26.6292 25.8168 24.7359C30.7082 20.7282 35.7692 16.5831 35.7692 10.1684C35.7692 4.34815 31.6968 0.282227 25.8652 0.282227Z" fill="black"/>
 </svg>
                 </div>
                 </button>
@@ -42,6 +42,7 @@
   </template>
   
   <script>
+  import api from "../api/index";
   export default {
     props: {
       recipedata: {
@@ -55,16 +56,60 @@
         return{
             videourl: "",
             recipeTitle: "Chicken Parma",
-            recipeCreator: "Created by David",
+            recipeCreator: "",
+            recipeId: "",
+            recipeliked: false,
+
         }
     },
     created(){
-        // this.recipeCreator = "Created by " + this.recipedata;
-        this.extractYouTubeVideoId("https://www.youtube.com/watch?v=hhxZZRAF_8s&ab_channel=HandsTouch");
+        this.checkForLikeVideo();
+        this.recipeCreator = "Created by " + this.recipedata.createdBy;
+        this.recipeTitle = this.recipedata.title;
+        this.recipeId = this.recipedata._id;
+        this.extractYouTubeVideoId(this.recipedata.videolink);
     },
     methods: {
-      likeVideo() {
-        // Handle like button click
+      async checkForLikeVideo(){
+        try{
+          const response = await api.get("/liked", {
+            withCredentials: true
+          })
+          if(response.status === 200){
+            const userlikeRecipes = response.data;
+            if(userlikeRecipes.includes(this.recipeId)){
+              this.recipeliked = true;
+            }
+            else{
+              this.recipeliked = false;
+            }
+          }
+        }
+        catch(error){
+          this.$router.push({ name: 'error', params: { errorMessage: error} });
+        }
+      },
+      async likeVideo() {
+        if(!this.recipeliked){
+          try{
+            await api.put(`/liked/${this.recipeId}`,null, {
+              withCredentials: true
+            });
+            this.recipeliked = true;
+          }
+          catch(error){
+            this.$router.push({ name: 'error', params: { errorMessage: error} });
+          }
+        }
+        else{
+          try{
+            await api.delete(`/liked/${this.recipeId}`,{withCredentials:true});
+            this.recipeliked = false;
+          }
+          catch(error){
+            this.$router.push({ name: 'error', params: { errorMessage: error} });
+          }
+        }
       },
       openInfo() {
         // Handle more info button click
@@ -96,7 +141,7 @@
     position: relative;
     display: flex;
     justify-content: center;
-    
+    margin-bottom: 8vh;
   }
   .recipe-video {
     position: relative;
@@ -179,7 +224,9 @@
     width: 65px;
     background-color: #eaeaea;
     border-radius: 50%;
+    transition: all ease 0.1s;
   }
+
   button .liked{
     background-color: #D94646;
   }
