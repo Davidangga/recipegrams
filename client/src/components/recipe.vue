@@ -141,7 +141,7 @@
     position: relative;
     display: flex;
     justify-content: center;
-    margin-bottom: 8vh;
+    margin-bottom: 7.5vh;
   }
   .recipe-video {
     position: relative;
