@@ -59,13 +59,13 @@ GET http://localhost:3000/api/recipes/646f1d8031c09da918247743
 
 
 ### get recipes by search
-GET http://localhost:3000/api/recipes/search/john
+GET http://localhost:3000/api/recipes/search/gbrgbfg
 
 ### get recipes by search
-GET http://localhost:3000/api/recipes/search/lunch
+GET http://localhost:3000/api/recipes/search/drink
 
 ### get recipes by search
-GET http://localhost:3000/api/recipes/area/Asian
+GET http://localhost:3000/api/recipes/search/chinese
 ### Edit recipe by id for user
 PUT http://localhost:3000/api/recipes/edit/6460f599ddc006fbf5278e15
 Content-Type: application/json

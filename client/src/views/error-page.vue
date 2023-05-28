@@ -2,6 +2,7 @@
     <div class="error-container">
       <h2>Error</h2>
       <p>{{ errorMessage }}</p>
+      <span>return to </span> <router-link to="/">Home</router-link>
     </div>
   </template>
   

@@ -80,5 +80,5 @@ export default{
 
 .recipes-container::-webkit-scrollbar {
     display: none;
-  }
+}
 </style>

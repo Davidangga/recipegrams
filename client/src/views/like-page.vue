@@ -71,13 +71,16 @@ export default{
 }
 
 .recipes-container{
+    display: flex;
+    justify-content: center;
     height: 85vh;
     overflow: auto;
     scrollbar-width: none; /* Hide scrollbar for Firefox */
     -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
+
 }
 
 .recipes-container::-webkit-scrollbar {
     display: none;
-  }
+}
 </style>
