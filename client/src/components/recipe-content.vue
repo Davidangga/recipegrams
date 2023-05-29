@@ -17,6 +17,7 @@
                                 <div class="title-container">
                                     <h2>{{recipeData.title}}</h2>
                                     <editComponent v-if="owning" :recipeId="recipeData._id"></editComponent>
+                                    <deleteComponent v-if="owning" :recipeId="recipeData._id" :recipeLiked="recipeLiked"></deleteComponent>
                                 </div>
                             </div>
                             <p class="recipe-creator">Created By <span>{{ recipeData.createdBy }}</span></p>
@@ -77,7 +78,8 @@
 
 <script>
 import api from "../api/index";
-import editComponent from "../components/edit-form.vue"
+import editComponent from "../components/edit-form.vue";
+import deleteComponent from "../components/delete-form.vue";
 export default {
     data(){
         return {
@@ -87,11 +89,16 @@ export default {
         }
     },
     components: {
-        editComponent
+        editComponent,
+        deleteComponent
     },
     props:{
         recipeId: {
             type: String,
+            required: true
+        },
+        recipeLiked:{
+            type: Boolean,
             required: true
         }
     },

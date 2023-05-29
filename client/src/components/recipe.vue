@@ -28,7 +28,7 @@
 </svg>
                 </div>
                 </button>
-                <recipeContentComponent :recipeId="recipeId"></recipeContentComponent>
+                <recipeContentComponent :recipeId="recipeId" :recipeLiked="recipeliked"></recipeContentComponent>
             </div>
         </div>
       </div>
