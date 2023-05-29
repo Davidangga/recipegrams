@@ -28,13 +28,7 @@
 </svg>
                 </div>
                 </button>
-                <button class="info-button" @click="openInfo">
-                <div class="circle-icon">
-                    <svg width="30" height="30" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.875 30.125V17.125H4.125V24.6L24.6 4.125H17.125V0.875H30.125V13.875H26.875V6.4L6.4 26.875H13.875V30.125H0.875Z" fill="black"/>
-</svg>
-                </div>
-                </button>
+                <recipeContentComponent :recipeId="recipeId"></recipeContentComponent>
             </div>
         </div>
       </div>
@@ -43,6 +37,7 @@
   
   <script>
   import api from "../api/index";
+  import recipeContentComponent from "../components/recipe-content.vue";
   export default {
     props: {
       recipedata: {
@@ -52,6 +47,9 @@
     }
     ,
     name: "recipeComponent",
+    components: {
+      recipeContentComponent
+    },
     data(){
         return{
             videourl: "",
@@ -115,6 +113,7 @@
         // Handle more info button click
       },
      extractYouTubeVideoId(url) {
+      
         // Regular expression pattern to match YouTube URLs
         const pattern = /^(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:embed\/|watch\?v=|v\/)|youtu\.be\/)([\w-]{11})(?:\S+)?$/;
 
@@ -236,9 +235,6 @@
   }
   .like-button{
     margin-bottom: 20px;
-  }
-  .like-button,
-  .info-button {
     border: none;
     background-color: transparent;
   }

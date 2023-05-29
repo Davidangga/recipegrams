@@ -71,8 +71,6 @@ export default{
 }
 
 .recipes-container{
-    display: flex;
-    justify-content: center;
     height: 85vh;
     overflow: auto;
     scrollbar-width: none; /* Hide scrollbar for Firefox */

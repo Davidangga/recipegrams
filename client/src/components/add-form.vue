@@ -238,7 +238,7 @@
           }
         }
         catch(error){
-          this.$router.push({ name: 'error', params: { errorMessage: error.response.data.error} });
+          this.$router.push({ name: 'error', params: { errorMessage: error} });
         }
         // You can send the form data to an API or perform any other actions
       }
@@ -266,10 +266,6 @@
   transform: scale(1.2); /* Adjust the scale value as needed */
 }
 
-.svg-icon {
-  width: 100%;
-  height: 100%;
-}
   .overlay {
     position: fixed;
     top: 0;

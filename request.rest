@@ -67,25 +67,11 @@ GET http://localhost:3000/api/recipes/search/drink
 ### get recipes by search
 GET http://localhost:3000/api/recipes/search/chinese
 ### Edit recipe by id for user
-PUT http://localhost:3000/api/recipes/edit/6460f599ddc006fbf5278e15
+PUT http://localhost:3000/api/recipes/edit/646f1e0b31c09da91824774a
 Content-Type: application/json
 
 {
-    "title" : "john food 1", 
-    "duration": "1 Jam", 
-    "category": "Lunch", 
-    "area": "Asian", 
-    "videolink": "youtube.com",
-    "ingredients": [
-        {
-            "name": "ingredient1",
-            "quantity": "1tbsp"
-        },
-        {
-            "name": "ingredient1",
-            "quantity": "1tbsp"
-        }
-    ]
+
 }
 
 ### Delete recipe by id for user
