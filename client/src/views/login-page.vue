@@ -120,7 +120,7 @@ export default {
         // Check if there are any loginErrors
         if (Object.keys(this.loginErrors).length === 0) {
             try{
-                const response = await axios.post("https://recipe-api-backend-davidangga.onrender.com/api/user/login", 
+                const response = await axios.post("http://localhost:3000/api/user/login", 
                 {
                     email: this.loginData.email, 
                     password: this.loginData.password
@@ -163,7 +163,7 @@ export default {
         // Check if there are any resgisterErrors
         if (Object.keys(this.resgisterErrors).length === 0) {
             try{
-                const response = await axios.post("https://recipe-api-backend-davidangga.onrender.com/api/user/register", 
+                const response = await axios.post("http://localhost:3000/api/user/register", 
                 {
                     email: this.registerData.email,
                     password: this.registerData.password,

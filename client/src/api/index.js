@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Create an Axios instance
 const api = axios.create({
-  baseURL: 'https://recipe-api-backend-davidangga.onrender.com/api/', // Set your API base URL
+  baseURL: 'http://localhost:3000/api/', // Set your API base URL
 });
 
 let isRefreshing = false; // Flag to track token refresh request
