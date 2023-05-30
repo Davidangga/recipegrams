@@ -204,7 +204,6 @@
       },
       async submitForm() {
         // Handle form submission logic here
-        console.log(this.recipe);
         this.recipe.duration = this.recipe.duration + " Minutes";
         try{
           const response = await api.post("/recipes",{

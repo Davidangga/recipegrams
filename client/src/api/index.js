@@ -1,45 +1,35 @@
 import axios from 'axios';
-import jwt_decode from 'jwt-decode';
-import cookies from 'js-cookie';
 
 // Create an Axios instance
 const api = axios.create({
-  baseURL: 'http://localhost:3000/api/', // Set your API base URL
+  baseURL: 'https://recipe-api-backend-davidangga.onrender.com/api/', // Set your API base URL
 });
 
 let isRefreshing = false; // Flag to track token refresh request
 
-function isTokenExpired(accessToken) {
-  if (!accessToken) {
-    return true;
-  }
-
-  const decodedToken = jwt_decode(accessToken);
-  const expirationTime = decodedToken.exp * 1000; // Convert expiration time to milliseconds
-  const currentTime = Date.now();
-  return expirationTime < currentTime;
+// Function to refresh the access token
+function refreshToken() {
+  return api.post('user/token', null, {
+    withCredentials: true,
+  });
 }
 
 // Add an Axios interceptor
 api.interceptors.request.use(
   async (config) => {
-    const accessToken = cookies.get('clientAccessToken');
     // Check if access token has expired
-    if (isTokenExpired(accessToken)) {
-      // Access token has expired
-      if (!isRefreshing) {
-        isRefreshing = true;
-        try {
-          // Make a request to refresh the token
-          await api.post('user/token', null, {
-            withCredentials: true,
-          });
+    if (!isRefreshing) {
+      isRefreshing = true;
+      // Refresh the access token
+      return refreshToken()
+        .then(() => {
           isRefreshing = false;
-        } catch (error) {
+          return config;
+        })
+        .catch((error) => {
           isRefreshing = false;
-          throw error;
-        }
-      }
+          return Promise.reject(error);
+        });
     }
     return config;
   },
@@ -49,3 +39,5 @@ api.interceptors.request.use(
 );
 
 export default api;
+
+

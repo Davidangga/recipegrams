@@ -20,9 +20,7 @@
 </template>
 
 <script>
-import axios from 'axios';
-import jwtDecode from 'jwt-decode';
-import cookies from 'js-cookie';
+import api from "../api/index";
 export default{
     name: "headerComponent",
     data(){
@@ -35,20 +33,29 @@ export default{
     },
     methods: {
 
-      getUsername(){
-        const decodedtoken = jwtDecode(cookies.get('clientAccessToken'));
-        this.userName = decodedtoken.userName;
+      async getUsername(){
+        try{
+          const response = await api.get("/user/name", {
+            withCredentials:true
+          });
+          if(response.status === 200){
+            this.userName = response.data.username
+          }
+        }
+        catch(error){
+          this.$router.push({ name: 'error', params: { errorMessage: error} });
+        }
       },
       async logoutUser(){
         try{
-          await axios.delete("http://localhost:3000/api/user/logout", {
+          await api.delete("/user/logout", {
             withCredentials: true
           });
           this.$router.push({name: 'login'});
         }
         catch(error){
           if (error.response.status === 401){
-              this.$router.push({ name: 'error', params: { errorMessage: error.response.data.error} });
+              this.$router.push({ name: 'error', params: { errorMessage: error} });
           }
         }
       }

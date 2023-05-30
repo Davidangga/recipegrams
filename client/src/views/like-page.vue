@@ -42,7 +42,6 @@ export default{
                     const recipe = await api.get(`/recipes/${recipeid}`, {
                         withCredentials:true
                     });
-                    console.log(recipe.data)
                     const likerecipe = {
                         _id: recipe.data._id,
                         title: recipe.data.title,
