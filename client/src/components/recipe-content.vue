@@ -2,7 +2,7 @@
     <div class="recipe-content-container">
         <button class="info-button" @click="openRecipe">
                 <div class="circle-icon">
-                    <svg width="30" height="30" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="25" height="25" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M0.875 30.125V17.125H4.125V24.6L24.6 4.125H17.125V0.875H30.125V13.875H26.875V6.4L6.4 26.875H13.875V30.125H0.875Z" fill="black"/>
                     </svg>
                 </div>
@@ -151,16 +151,19 @@ export default {
     border: 1px solid black;
     padding: 40px;
     border-radius: 15px;
-    width: 850px;
+    width: 750px;
     height: fit-content;
     position: relative;
     z-index: 100;
     font-family: var(--primary-font-family);
 }
 
+.recipe-title{
+    display: flex;
+    align-items: center;
+}
 .recipe-title h2{
     font-weight: 600;
-    margin-bottom: 0;
     margin-right: 15px;
 }
 
@@ -170,7 +173,7 @@ export default {
 }
 
 .recipe-creator{
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
 .recipe-creator span{
@@ -191,12 +194,12 @@ export default {
 
 
 .duration-container span{
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 600;
     color: white;
 }
 .instructions-container h2{
-    font-size: 1.7rem;
+    font-size: 1.3rem;
     font-weight: 600;
     margin-bottom: 20px;
 }
@@ -206,10 +209,11 @@ export default {
     display: flex;
 }
 .instructions-container .dot{
-    height: 25px;
-    width: 25px;
+    height: 15px;
+    width: 15px;
     border-radius: 50%;
-    border: 5px solid #E94C89;
+    border: 3px solid #E94C89;
+    transform: translate(0, 20%);
 }
 
 .instruction-item .content{
@@ -217,24 +221,24 @@ export default {
 }
 
 .instruction-item .content h3{
-   font-size: 1.3rem;
+   font-size: 1.1rem;
    font-weight: 600;
    margin-bottom: 0;
 }
 
 .instruction-item .content p{
-    font-size: 1.2rem;
+    font-size: 0.9rem;
     color: #565656;
 }
 
 .instruction-item .line{
     height: 40px;
-    width: 25px;
-    border-left: 5px dashed #E94C89;
+    width: 15px;
+    border-left: 3px dashed #E94C89;
     transform: translate(40%, 10%);
 }
 .ingredients-container h2{
-    font-size: 1.7rem;
+    font-size: 1.3rem;
     font-weight: 600;
     margin-bottom: 20px;
 }
@@ -247,15 +251,15 @@ export default {
 }
 
 .ingredient-item .dot{
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
     background-color: #E94C89;
     margin-right: 20px;
 }
 .ingredient-item .content{
     width: fit-content;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 .ingredient-item .content span{
@@ -301,8 +305,8 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 65px;
-    width: 65px;
+    height: 55px;
+    width: 55px;
     background-color: #eaeaea;
     border-radius: 50%;
     transition: all ease 0.1s;

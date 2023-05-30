@@ -223,9 +223,6 @@ export default {
     justify-content: center; 
 }
 
-.container{
-    
-}
 .login-container {
     position: relative;
     max-width: 90%;
@@ -244,7 +241,7 @@ export default {
 .mylogo{
     position: absolute;
     font-family: var(--logo-font-family);
-    font-size: 2.5rem;
+    font-size: 1rem;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -350,7 +347,7 @@ form button{
 @media (min-width: 1200px) {
   /* Add desktop-specific styles here */
   .mylogo{
-    font-size: 2.8rem;
+    font-size: 2.5rem;
   }
 
   .radio-container{
@@ -360,18 +357,18 @@ form button{
   .radio-container .btn{
     width: 150px;
     height: 50px;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     }
 
   form{
     max-width: 70%;
     margin: 0 auto;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
   }
 
   form input{
     height: 40px;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
   }
   .login-container {
     max-width: 50%;

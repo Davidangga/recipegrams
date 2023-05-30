@@ -23,7 +23,7 @@
             <div class="recipe-actions">
                 <button class="like-button" @click="likeVideo">
                 <div class="circle-icon" :class="{liked : recipeliked}">
-                    <svg width="35" height="35" viewBox="0 0 36 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="30" height="30" viewBox="0 0 36 32" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path :class="{liked : recipeliked}" d="M25.8652 0.282227C22.4794 0.282227 19.5863 2.69561 17.9967 4.35946C16.4072 2.69561 13.5205 0.282227 10.1363 0.282227C4.3031 0.282227 0.230713 4.34815 0.230713 10.1684C0.230713 16.5815 5.28848 20.7265 10.1815 24.7359C12.4915 26.6308 14.8823 28.5886 16.7157 30.7597C17.0243 31.1232 17.4766 31.3332 17.9515 31.3332H18.0452C18.5217 31.3332 18.9724 31.1215 19.2793 30.7597C21.116 28.5886 23.5052 26.6292 25.8168 24.7359C30.7082 20.7282 35.7692 16.5831 35.7692 10.1684C35.7692 4.34815 31.6968 0.282227 25.8652 0.282227Z" fill="black"/>
 </svg>
                 </div>
@@ -144,11 +144,11 @@
   }
   .recipe-video {
     position: relative;
-    width: 500px;
-    height: 800px;
+    width: 370px;
+    height: 620px;
     overflow: hidden;
     background-color: black;
-    border-radius: 20px;
+    border-radius: 15px;
   }
   
   .video-container {
@@ -177,7 +177,7 @@
     position: absolute;
     flex-direction: column;
     bottom: 0;
-    margin-left: 70px;
+    margin-left: 35px;
     margin-bottom: 20px;
     width: fit-content;
   }
@@ -207,11 +207,12 @@
 
   .description-container{
     padding: 30px;
-    margin-top: 20px;
+    font-size: 0.9rem;
   }
 
   .description-container h3{
     font-weight: 600;
+    font-size: 1.2rem;
     margin-bottom: 10px;
   }
   
@@ -219,8 +220,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 65px;
-    width: 65px;
+    height: 55px;
+    width: 55px;
     background-color: #eaeaea;
     border-radius: 50%;
     transition: all ease 0.1s;

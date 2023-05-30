@@ -68,8 +68,8 @@ export default{
 .nav-container{
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
-    padding: 20px 0;
+    margin-bottom: 10px;
+    padding: 15px 0;
 }
 .logo-container{
     position: relative;
@@ -80,7 +80,7 @@ export default{
 .mylogo{
     position: absolute;
     font-family: var(--logo-font-family);
-    font-size: 2.8rem;
+    font-size: 2vw;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -96,11 +96,11 @@ export default{
     justify-content: center;
     align-items: center;
     font-family: var(--primary-font-family);
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 .profile-container span{
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: 600;
 }
 
@@ -118,4 +118,21 @@ export default{
 
 }
 
+@media (max-width: 1200px) {
+
+  /* .logo-container{
+    display: none;
+  } */
+  .profile-container{
+    font-size: 1rem;
+    /* width: 100vw;
+    display: flex;
+    justify-content: space-between; */
+  }
+
+  .profile-container span{
+    font-size: 1.2rem;
+  }
+
+}
 </style>

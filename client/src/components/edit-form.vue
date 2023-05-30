@@ -261,7 +261,7 @@
 
   .form-title{
     font-family: var(--logo-font-family);
-    font-size: 2.5rem;
+    font-size: 2rem;
     width: fit-content;
     margin-bottom: 30px;
   }
@@ -285,14 +285,14 @@
 
   .form-group label{
     font-weight: 600;
-    font-size: 1.2rem;
+    font-size: 0.9rem;
   }
   .form-group input{
     border: 3px solid #E94C89;
-    height: 35px;
+    height: 30px;
     border-radius: 8px;
     margin-top: 5px;
-    font-size: 1.1rem;
+    font-size: 0.8rem;
     
   }
 
@@ -305,13 +305,13 @@
   }
 
   .add-btn svg{
-    width: 30px;
-    height: 30px;
+    width: 15px;
+    height: 15px;
   }
 
   .add-btn span{
     margin-left: 15px;
-    font-size: 1.1rem ;
+    font-size: 0.9rem ;
     
   }
 
@@ -322,9 +322,14 @@
     color: white;
     border-radius: 5px;
     background-color: rgb(197, 47, 47);
+    font-size: 0.8rem;
   }
   .form-group table{
     margin: 5px 0;
+  }
+
+  .form-group th{
+    font-size: 0.9rem;
   }
 
   .form-group table:nth-of-type(2){
@@ -337,7 +342,7 @@
   }
 
   .instruction-input{
-    width: 400px;
+    width: 350px;
   }
 
   .form-group{
@@ -356,7 +361,7 @@
   .btn-container .submit-btn{
     position: relative;
     padding: 8px 20px;
-    font-size: 1.2rem;
+    font-size: 1rem;
     border: none;
     color: white;
     border-radius: 15px;

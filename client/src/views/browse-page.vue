@@ -107,7 +107,7 @@ export default{
     -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
     width: 100%;
     margin-top: 10px;
-    padding-top: 20px;
+    padding-top: 10px;
 }
 
 .recipes-container::-webkit-scrollbar {
@@ -122,17 +122,17 @@ export default{
 
 .form-group input{
     width: 30vw ;
-    font-size: 1.3rem;
-    padding: 15px 20px;
+    font-size: 1rem;
+    padding: 10px 10px;
     border-radius: 50px;
-    padding-left: 40px;
+    padding-left: 30px;
     font-family: var(--primary-font-family);
     border: 3px solid #E94C89;
 }
 
 .browse-container{
     position: absolute;
-    top: 73px;
+    top: 70px;
 }
 .input-container{
     position: relative;
@@ -147,8 +147,8 @@ export default{
 }
 
 .submit-btn svg{
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
 }
 
 

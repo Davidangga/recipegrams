@@ -39,7 +39,7 @@ export default{
 .nav-container h2{
     color: #8c8c8c8c;
     font-family: var(--secondary-font-family);
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 50px;
 }
@@ -52,7 +52,7 @@ export default{
 
 .link-group li{
     margin-bottom: 30px;
-    padding: 8px 40px 8px 30px;
+    padding: 8px 30px 8px 30px;
     transition: all ease 0.1s;
 }
 .link-group .link{
@@ -79,7 +79,7 @@ export default{
     padding-left: 50px;
     font-family: var(--primary-font-family);
     font-weight: 600;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 .activelink{
     background-color: #E94C89;
@@ -94,8 +94,24 @@ export default{
 }
 
 svg{
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
 
+}
+
+@media (max-width: 1200px) {
+    .nav-container h2{
+        font-size: 1.5vw;
+    }
+
+    .link-group span{
+        font-size: 1.2vw;
+    }
+
+    svg{
+    width: 20px;
+    height: 20px;
+
+    }
 }
 </style>
