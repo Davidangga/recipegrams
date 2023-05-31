@@ -240,5 +240,20 @@
     background-color: transparent;
   }
   
+    /* For larger tablet screen */
+  @media (max-width: 1280px) {
+    .recipe-video{
+      width: 330px;
+    height: 580px;
+    }
+}
+
+  /* For smaller tablet */
+  @media (max-width: 1024px){
+    .recipe-video{
+      width: 300px;
+      height: 530px;
+    }
+  }
   </style>
   

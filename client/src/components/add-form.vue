@@ -446,5 +446,15 @@
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 90;
   }
+
+    /* For larger tablet screen */
+  @media (max-width: 1280px) {
+    .form-group{
+      margin-bottom: 10px;
+    }
+    .form-group input{
+    border: 2px solid #E94C89;
+  }
+  }
   </style>
   

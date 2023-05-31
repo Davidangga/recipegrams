@@ -83,14 +83,13 @@ export default{
     display: none;
   }
 
-  @media (max-width: 1200px) {
-    .container-fluid{
-        padding: 0 5vh;
-    }
+/* For larger tablet screen */
+@media (max-width: 1280px) {
+.container-fluid{
+    padding: 0 5vh;
+}
+}
 
-    .recipes-container{
-        
-    }
-  }
+
 
 </style>

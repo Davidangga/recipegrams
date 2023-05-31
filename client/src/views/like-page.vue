@@ -80,4 +80,11 @@ export default{
 .recipes-container::-webkit-scrollbar {
     display: none;
 }
+
+  /* For larger tablet screen */
+@media (max-width: 1280px) {
+    .container-fluid{
+        padding: 0 5vh;
+    }
+}
 </style>

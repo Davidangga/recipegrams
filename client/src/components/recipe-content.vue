@@ -153,6 +153,8 @@ export default {
     border-radius: 15px;
     width: 750px;
     height: fit-content;
+    max-height: 85vh;
+    overflow-y: auto;
     position: relative;
     z-index: 100;
     font-family: var(--primary-font-family);
@@ -311,4 +313,5 @@ export default {
     border-radius: 50%;
     transition: all ease 0.1s;
   }
+
 </style>

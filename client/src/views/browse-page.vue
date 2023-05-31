@@ -152,4 +152,33 @@ export default{
 }
 
 
+/* For larger tablet screen */
+@media (max-width: 1280px) {
+    .container-fluid{
+        padding: 0 5vh;
+    }
+
+    .form-group input{
+    font-size: 0.8rem;
+    padding-left: 10px; 
+    }
+
+    .submit-btn{
+        left: 88%;
+    }
+
+  }
+
+/* For smaller tablet */
+@media (max-width: 1024px){
+    .form-group input{
+    width: 35vw;
+    }
+
+    .recipes-container{
+    margin-top: 30px;
+    padding-top: 0px;
+}
+}
+
 </style>

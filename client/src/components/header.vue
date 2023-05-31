@@ -120,14 +120,8 @@ export default{
 
 @media (max-width: 1200px) {
 
-  /* .logo-container{
-    display: none;
-  } */
   .profile-container{
     font-size: 1rem;
-    /* width: 100vw;
-    display: flex;
-    justify-content: space-between; */
   }
 
   .profile-container span{
@@ -135,4 +129,25 @@ export default{
   }
 
 }
+/* For smaller tablet */
+@media (max-width: 1024px){
+  .mylogo{
+  font-size: 2rem;
+}
+
+.profile-container{
+    font-size: 0.8rem;
+  }
+
+  .profile-container span{
+    font-size: 1rem;
+  }
+
+  .nav-container{
+    margin-bottom: 0px;
+    padding: 10px 0;
+}
+}
+
+
 </style>

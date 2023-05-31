@@ -99,7 +99,8 @@ svg{
 
 }
 
-@media (max-width: 1200px) {
+/* For larger tablet screen */
+@media (max-width: 1280px) {
     .nav-container h2{
         font-size: 1.5vw;
     }
@@ -112,6 +113,18 @@ svg{
     width: 20px;
     height: 20px;
 
+    }
+}
+
+
+/* For smaller tablet */
+@media (max-width: 1024px){
+    .nav-container h2{
+        font-size: 2vw;
+    }
+
+    .link-group span{
+        font-size: 1.5vw;
     }
 }
 </style>

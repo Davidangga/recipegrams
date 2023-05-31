@@ -254,6 +254,8 @@
     padding: 20px;
     border-radius: 15px;
     width: 600px;
+    max-height: 100vh;
+    overflow-y: auto;
     height: fit-content;
     position: relative;
     z-index: 100;
@@ -384,6 +386,16 @@
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 90;
+  }
+
+  /* For larger tablet screen */
+  @media (max-width: 1280px) {
+    .form-group input{
+    border: 2px solid #E94C89;
+  }
+  .form-group{
+      margin-bottom: 10px;
+    }
   }
   </style>
   
