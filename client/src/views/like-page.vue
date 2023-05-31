@@ -87,4 +87,19 @@ export default{
         padding: 0 5vh;
     }
 }
+
+/* For mobile phone */
+@media (max-width: 428px){
+    .container-fluid{
+        padding: 0 0vh;
+    }
+
+    .recipes-container{
+        position: absolute;
+        left: 0;
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+    }
+}
 </style>

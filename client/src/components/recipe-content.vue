@@ -65,7 +65,6 @@
                 </div>
                 <span class="close-icon" @click="showDetails = false">
                         <svg width="53" height="53" viewBox="0 0 53 53" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="26.5" cy="26.5" r="26.5" fill="white"/>
                         <path d="M34 20.41L32.59 19L27 24.59L21.41 19L20 20.41L25.59 26L20 31.59L21.41 33L27 27.41L32.59 33L34 31.59L28.41 26L34 20.41Z" fill="black"/>
                         </svg>
                 </span>
@@ -313,5 +312,54 @@ export default {
     border-radius: 50%;
     transition: all ease 0.1s;
   }
+
+  /* For mobile phone */
+@media (max-width: 428px){
+
+    .recipe-card{
+        width: 100vw;
+        padding: 30px 15px;
+    }
+
+    .recipe-title{
+        display: flex;
+        align-items: center;
+    }
+    .recipe-title h2{
+        font-size: 1.2rem;
+    }
+
+    .recipe-creator{
+        font-size: 1rem;
+    }
+
+    .duration-container{
+        padding: 10px 10px;
+    }
+    .duration-container span{
+        font-size: 0.8rem;
+    }
+
+    .instructions-container{
+        width: fit-content;
+    }
+
+    .ingredients-container{
+        position: absolute;
+        left: 55%;
+    }
+
+    .instructions-container h2{
+        font-size: 1.1rem;
+    }
+
+    .instruction-item .content h3{
+        font-size: 1rem;
+    }
+
+    .ingredients-container h2{
+        font-size: 1.1rem;
+    }
+}
 
 </style>

@@ -397,5 +397,22 @@
       margin-bottom: 10px;
     }
   }
+
+  @media (max-width: 428px){
+    .clickable-svg svg{
+      width: 20px;
+      height: 20px;
+    }
+    .form-group .remove-btn{
+    padding: 8px 10px;
+  }
+
+  .instruction-input{
+    width: 250px;
+  }
+  }
+
+  
+
   </style>
   

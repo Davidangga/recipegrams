@@ -153,11 +153,12 @@ export default{
 @media (max-width: 428px){
   .logo-container{
     width: 150px;
-    padding: 10px 0;
+    padding: 20px 0;
+    padding-top: 10px;
     margin-left: 10px;
   }
   .mylogo{
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
   .profile-container span{
     font-size: 0.8rem;

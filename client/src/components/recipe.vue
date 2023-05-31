@@ -258,10 +258,31 @@
 
   /* For mobile phone */
 @media (max-width: 428px){
+
+  .container{
+    padding: 0;
+    margin: 0;
+  }
+  .row{
+    width: 100vw;
+  }
   .recipe-video{
-      width: 300px;
-      height: 530px;
+      width: 95vw;
+      height: 85vh;
+      margin-bottom: 20px;
     }
+
+  .recipe-actions{
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  bottom: 10%;
+  left: 80%;
+  z-index: 2;
+  margin: 0;
+  width: fit-content;
+}
+  
 }
 </style>
   

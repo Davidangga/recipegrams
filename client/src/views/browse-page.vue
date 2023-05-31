@@ -185,6 +185,25 @@ export default{
     .container-fluid{
     padding: 0 0vh;
 }
+
+.recipes-container{
+    position: absolute;
+    left: 0;
+    width: 100vw;
+    margin: 0;
+}
+
+.form-group input{
+    width: 98vw;
+    font-size: 0.9rem;
+    padding-left: 20px;
+    border-radius: 15px;
+}
+.form-group{
+    position: relative;
+    z-index: 2;
+    transform: translate(0, -22px);
+}
 }
 
 </style>

@@ -241,7 +241,7 @@ export default {
 .mylogo{
     position: absolute;
     font-family: var(--logo-font-family);
-    font-size: 1rem;
+    font-size: 2rem;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);

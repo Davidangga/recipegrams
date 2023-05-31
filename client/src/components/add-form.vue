@@ -472,8 +472,17 @@
   transform: translate(-100px, 45px);
 }
 
+.form-group .remove-btn{
+    padding: 8px 10px;
+  }
+
+  .instruction-input{
+    width: 250px;
+  }
 
 }
+
+
   
   </style>
   
