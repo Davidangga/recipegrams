@@ -456,5 +456,24 @@
     border: 2px solid #E94C89;
   }
   }
+
+  @media (max-width: 428px){
+
+.clickable-svg:hover {
+  transform: scale(1);
+  transform: translate(-100px, 45px);
+}
+.clickable-svg svg{
+  width: 50px;
+  height: 50px;
+}
+
+.clickable-svg{
+  transform: translate(-100px, 45px);
+}
+
+
+}
+  
   </style>
   

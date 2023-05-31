@@ -149,5 +149,33 @@ export default{
 }
 }
 
+/* For mobile phone */
+@media (max-width: 428px){
+  .logo-container{
+    width: 150px;
+    padding: 10px 0;
+    margin-left: 10px;
+  }
+  .mylogo{
+    font-size: 1.5rem;
+  }
+  .profile-container span{
+    font-size: 0.8rem;
+  }
+
+  .nav-container{
+    margin-bottom: 0px;
+    padding: 10px 0;
+    width: 100vw;
+    margin: 0;
+}
+.logout-btn{
+    margin-left: 20px;
+    width: 80px;
+    height: 30px;
+    margin-right: 10px;
+}
+}
+
 
 </style>

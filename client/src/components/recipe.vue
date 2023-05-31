@@ -255,5 +255,13 @@
       height: 530px;
     }
   }
-  </style>
+
+  /* For mobile phone */
+@media (max-width: 428px){
+  .recipe-video{
+      width: 300px;
+      height: 530px;
+    }
+}
+</style>
   

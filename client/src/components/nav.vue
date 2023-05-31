@@ -127,4 +127,43 @@ svg{
         font-size: 1.5vw;
     }
 }
+
+/* For mobile phone */
+@media (max-width: 428px){
+    .nav-container h2{
+        display: none;
+    }
+
+    .link-group span{
+        display: none;
+    }
+    .link-group{
+        display: flex;
+        position: absolute;
+        bottom: 0;
+        width: 100vw;
+        left: 0;
+        justify-content: space-between;
+        margin-bottom: 0;
+        padding: 0 10px; 
+        padding-bottom: 10px;
+    }
+    .link-group li{
+        margin-bottom: 0;
+    }
+
+    .link-group li:nth-of-type(2){
+        margin-right:30px ;
+    }
+
+    .link-group li:nth-of-type(3){
+        margin-left:30px ;
+    }
+
+    .nav-container{
+        position: absolute;
+        height: 89vh;
+    }
+}
+
 </style>

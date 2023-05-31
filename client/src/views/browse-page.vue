@@ -180,5 +180,11 @@ export default{
     padding-top: 0px;
 }
 }
+/* For mobile phone */
+@media (max-width: 428px){
+    .container-fluid{
+    padding: 0 0vh;
+}
+}
 
 </style>
