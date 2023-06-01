@@ -2,6 +2,7 @@
     <div>
       <h1>Page Not Found 404</h1>
       <p>The requested page could not be found.</p>
+      <router-link to="/login">Login</router-link>
     </div>
   </template>
   
