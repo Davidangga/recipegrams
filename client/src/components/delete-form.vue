@@ -52,7 +52,7 @@
                 })
                 if(response.status === 200){
                     this.removeFromLiked();
-                    location.reload();
+                    this.showForm = false;
                 }
             }
             catch(error){

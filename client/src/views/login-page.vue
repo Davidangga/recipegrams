@@ -120,7 +120,7 @@ export default {
         // Check if there are any loginErrors
         if (Object.keys(this.loginErrors).length === 0) {
             try{
-                const response = await axios.post("http://localhost:3000/api/user/login", 
+                const response = await axios.post("https://recipe-api-backend-davidangga.onrender.com/api/user/login", 
                 {
                     email: this.loginData.email, 
                     password: this.loginData.password
@@ -157,13 +157,13 @@ export default {
         if (!this.registerData.password) {
             this.resgisterErrors.password = 'Password is required.';
         } else if (!this.isValidPassword(this.registerData.password)) {
-            this.resgisterErrors.password = 'Password must be at least 8 characters long and contain a combination of letters, numbers, and special characters.';
+            this.resgisterErrors.password = 'Password must be at least 8 characters long and contain a combination of letters, numbers, and at least one special characters [@$!%*#?&]';
         }
         
         // Check if there are any resgisterErrors
         if (Object.keys(this.resgisterErrors).length === 0) {
             try{
-                const response = await axios.post("http://localhost:3000/api/user/register", 
+                const response = await axios.post("https://recipe-api-backend-davidangga.onrender.com/api/user/register", 
                 {
                     email: this.registerData.email,
                     password: this.registerData.password,

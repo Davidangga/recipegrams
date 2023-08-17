@@ -109,6 +109,9 @@
           }
         }
       },
+      openInfo() {
+        // Handle more info button click
+      },
      extractYouTubeVideoId(url) {
       
         // Regular expression pattern to match YouTube URLs

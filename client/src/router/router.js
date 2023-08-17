@@ -5,9 +5,10 @@ import ErrorPage from "../views/error-page.vue";
 import BrowsePage from "../views/browse-page.vue";
 import LikePage from "../views/like-page.vue";
 import PrivatePage from "../views/private-page.vue";
-import NotFound from "../views/notfound-page.vue";
 import api from "../api/index";
 const routes = [
+
+   { path: '/:pathMatch(.*)*', redirect: "/" },
     {
         path: "/",
         name: "home",
@@ -43,8 +44,7 @@ const routes = [
         name: "error",
         component: ErrorPage,
         props: true
-    },
-    { path: '/:pathMatch(.*)*', component: NotFound },
+    }
 ]
 
 const router = createRouter({
