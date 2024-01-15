@@ -7,6 +7,7 @@ Features:
 * Like and archieved recipes
 * Login and signup account
 
+LIVE DEMO (A bit slow to load due to free tier server):[LINK](davidangga.github.io/recipegrams/) 
 
 ## Built With
 * [![Vue.js][Vue.js]][Vue-url]
@@ -16,9 +17,62 @@ Features:
 * [![JWT][JWT]][JWT-url]
 
 ## Usage and App ScreenShots
+### Login and Sign Up
+![login page](images/screenshot1.png)
+### Home Page
+![home page](images/screenshot2.png)
+### Recipe's detail
+![recipe detail](images/screenshot3.png)
+### Create recipe
+![create page](images/screenshot4.png)
+### Edit recipe
+![edit page](images/screenshot5.png)
 
 ## Installation
+1. Clone the repo
+```sh
+git clone [clone url]
+```
+3. Project setup install dependencies for client and server folder
+```sh
+cd client
+npm install
+cd ../server
+npm install
+```
+4. On the server folder, make a config folder with database.js file.
+```js
+module.exports = {
+    development: {
+      URL: [mongoDB_url],
+      options: {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+      }
+    }
+}
+```
+6. On app.js update the allow origins to frontend or client URL
+```js
+const allowedOrigins = [URL]; // Update with your frontend URL
+```
+8. Make .env file containing access and refresh secret token
+```env
+ACCESS_TOKEN_SECRET = TOKEN
+REFRESH_TOKEN_SECRET = TOKEN
+```
+10. On client folder, under src look for API folder and change the baseURL
+```js
+baseURL: 'server's API URL', // Set your API base URL
+```
+11. run both client and server sides
+```sh
+npm run serve
+```
 
+## License
+
+Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [Vue.js]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
