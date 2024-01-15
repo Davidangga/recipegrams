@@ -16,18 +16,6 @@ LIVE DEMO (A bit slow to load due to free tier server):[LINK](davidangga.github.
 * [![MongoDB][Mongodb]][Mongodb-url]
 * [![JWT][JWT]][JWT-url]
 
-## Usage and App ScreenShots
-### Login and Sign Up
-![login page](images/screenshot1.png)
-### Home Page
-![home page](images/screenshot2.png)
-### Recipe's detail
-![recipe detail](images/screenshot3.png)
-### Create recipe
-![create page](images/screenshot4.png)
-### Edit recipe
-![edit page](images/screenshot5.png)
-
 ## Installation
 1. Clone the repo
 ```sh
@@ -70,6 +58,17 @@ baseURL: 'server's API URL', // Set your API base URL
 npm run serve
 ```
 
+## Usage and App ScreenShots
+### Login and Sign Up
+![login page](images/screenshot1.png)
+### Home Page
+![home page](images/screenshot2.png)
+### Recipe's detail
+![recipe detail](images/screenshot3.png)
+### Create recipe
+![create page](images/screenshot4.png)
+### Edit recipe
+![edit page](images/screenshot5.png)
 ## License
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
