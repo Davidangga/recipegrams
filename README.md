@@ -7,7 +7,7 @@ Features:
 * Like and archieved recipes
 * Login and signup account
 
-LIVE DEMO (A bit slow to load due to free tier server):[LINK](davidangga.github.io/recipegrams/) 
+LIVE DEMO (A bit slow to load due to free tier server):[LINK](https://davidangga.github.io/recipegrams/) 
 
 ## Built With
 * [![Vue.js][Vue.js]][Vue-url]
